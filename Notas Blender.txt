@@ -1,0 +1,105 @@
+Notas Blender
+
+ 
+
+El cubo mide 2x2x2
+
+Con 0 vemos desde la camara
+
+Para mover la camara con el mouse seleccionar con el cursor fuera de la figura y mover apretando el scroll del mouse
+ 
+
+Instalar add-on para ver teclas en la esquina izquierda de abajao
+
+ 
+
+Con 1 vista fronta
+
+ 
+
+Con3 lateral derecha
+
+ 
+
+Con 7 superior
+
+ 
+
+Con 9 vista contraria
+
+ 
+Con 2,4,6 y 8 tambien movemos la camara
+ 
+
+Con G se mueven las cosas
+
+ 
+
+Con R se rotan por medio de X, Y o Z, si se hace shift +Z no rota Z
+
+ 
+
+Con S se escala, y se pueden usar los ejes para escalar solo ciertas coordenadas
+
+ 
+
+ 
+
+Presiona el objeto + TAB para entrar al modo edicion y poder jugar con las aritas o vertices o caras
+
+Para seleccionar aristas y caras ver el menu de arriba a la par del menu seleccionador de modo y ver los 3 simbolos
+
+ 
+
+Con A se selecciona todo
+
+ 
+
+Con E hacemos Exclude para crear mas topografia
+
+ 
+
+Con X borramos todos
+
+ 
+
+Con Shift + A se crea figuras primitivas y usar Grid Fill
+
+ 
+
+CTRL + R para hacer cortes (mas geometria)
+
+ 
+
+SHIFT + Click derecho movemos el cursor original
+
+ 
+
+Con punto centra la vista a lo seleccionado
+
+Con F se llena un objeto nuevo
+
+ 
+
+CTRL + R crea aristas o cortes
+
+ 
+
+CTRL + B curvatura
+
+ 
+
+Object mode -shapes mode para verlo mas redondeado
+
+ 
+
+Con 2 veces G corremos los vertices hacia la linea
+
+
+
+Con Y separamos
+
+Con P separamos los objetos
+
+
+https://www.cgtrader.com/3d-models/exterior/historic-exterior/photo-studio-b1c8e84a-1982-455c-9842-960deb0ed968
