@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class ChangeAllMaterialsColor : MonoBehaviour
 {
@@ -35,18 +36,23 @@ public class ChangeAllMaterialsColor : MonoBehaviour
         if (!colorChanged && elapsedTime >= delay)
         {
 			Debug.Log("Global script will update!");
+			// Find the GameObject by its name
+			GameObject myObject = GameObject.Find("t-shirt_long_pose_1");
+			GameObject myText = GameObject.Find("TextTags01");
             // Get all objects with a renderer component in the scene
-            Renderer[] renderers = FindObjectsOfType<Renderer>();
+            //Renderer[] renderers = FindObjectsOfType<Renderer>();
 
             // Iterate through all the renderers and change their materials' color
-            foreach (Renderer renderer in renderers)
+            /*foreach (Renderer renderer in renderers)
             {
                 Material[] materials = renderer.materials;
                 foreach (Material material in materials)
                 {
                     material.color = newColor;
                 }
-            }
+            }*/
+			myObject.GetComponent<Renderer>().material.color = newColor;
+			myText.GetComponent<TextMeshPro>().text = "Brand: Roxy \n Price: $60";
 
             colorChanged = true; // Mark that the color has been changed
         }
