@@ -37,7 +37,7 @@ public class ChangeAllMaterialsColor : MonoBehaviour
         // Create an InputAction for the keyboard
         keyboardAction = new InputAction(binding: "<Keyboard>/H");
         keyboardAction.Enable();
-
+		keyboardAction.AddBinding("<Keyboard>/K");
         // Subscribe to the "performed" event
         keyboardAction.performed += OnKeyboardInput;
     }
@@ -50,12 +50,37 @@ public class ChangeAllMaterialsColor : MonoBehaviour
     }
 	
 	private void OnKeyboardInput(InputAction.CallbackContext context)
-    {
+    {	
+		// Get the key that was pressed
+        string key = context.control.name;
+		//Debug.Log(key + " is pressed using the context.control.name...");
+
+		
         // Check if the key was pressed
         if (context.performed)
         {
+			 switch (key)
+        {
+            case "h":
+				//GameObject myObject = GameObject.Find("t-shirt_long_pose_1");
+				GameObject.Find("t-shirt_long_pose_1").GetComponent<Renderer>().material.color = Color.blue;
+                Debug.Log("H key is pressed. Performing action for 'H'...");
+                // Replace the Debug.Log with your actual 'H' key action.
+                break;
+            case "k":
+				//GameObject myObject = GameObject.Find("t-shirt_long_pose_1");
+				GameObject.Find("t-shirt_long_pose_1").GetComponent<Renderer>().material.color = Color.gray;
+                Debug.Log("K key is pressed. Performing action for 'K'...");
+                // Replace the Debug.Log with your actual 'K' key action.
+                break;
+            // Add more cases for other keys as needed
+            default:
+                Debug.Log($"Key '{key}' is pressed. Performing a default action...");
+                // Replace the Debug.Log with a default action or leave it empty.
+                break;
+        }
             // Perform your action here
-            Debug.Log("H key is pressed using the Input System. Performing action...");
+            //Debug.Log("H key is pressed using the Input System. Performing action...");
             // Replace the Debug.Log with your actual action.
         }
     }
@@ -64,31 +89,31 @@ public class ChangeAllMaterialsColor : MonoBehaviour
 
     void Update()
     {	
-		// Check if the desired delay has passed and the color hasn't been changed yet
-        if (!colorChanged && elapsedTime >= delay)
-        {
-			Debug.Log("Global script will update!");
-			// Find the GameObject by its name
-			GameObject myObject = GameObject.Find("t-shirt_long_pose_1");
-			GameObject myText = GameObject.Find("TextTags01");
-            // Get all objects with a renderer component in the scene
-            //Renderer[] renderers = FindObjectsOfType<Renderer>();
+		// // Check if the desired delay has passed and the color hasn't been changed yet
+        // if (!colorChanged && elapsedTime >= delay)
+        // {
+			// Debug.Log("Global script will update!");
+			// // Find the GameObject by its name
+			// GameObject myObject = GameObject.Find("t-shirt_long_pose_1");
+			// GameObject myText = GameObject.Find("TextTags01");
+            // // Get all objects with a renderer component in the scene
+            // //Renderer[] renderers = FindObjectsOfType<Renderer>();
 
-            // Iterate through all the renderers and change their materials' color
-            /*foreach (Renderer renderer in renderers)
-            {
-                Material[] materials = renderer.materials;
-                foreach (Material material in materials)
-                {
-                    material.color = newColor;
-                }
-            }*/
-			myObject.GetComponent<Renderer>().material.color = newColor;
-			myText.GetComponent<TextMeshPro>().text = "Brand: Roxy \n Price: $60";
+            // // Iterate through all the renderers and change their materials' color
+            // /*foreach (Renderer renderer in renderers)
+            // {
+                // Material[] materials = renderer.materials;
+                // foreach (Material material in materials)
+                // {
+                    // material.color = newColor;
+                // }
+            // }*/
+			// myObject.GetComponent<Renderer>().material.color = newColor;
+			// myText.GetComponent<TextMeshPro>().text = "Brand: Roxy \n Price: $60";
 
-            colorChanged = true; // Mark that the color has been changed
-        }
+            // colorChanged = true; // Mark that the color has been changed
+        // }
 
-        elapsedTime += Time.deltaTime; // Update the elapsed time
+        // elapsedTime += Time.deltaTime; // Update the elapsed time
     }
 }
