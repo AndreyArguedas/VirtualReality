@@ -31,7 +31,14 @@ public class ChangeAllMaterialsColor : MonoBehaviour
     }
 
     void Update()
-    {
+    {	
+		// Start genetaring the Heat Map
+        /*if (Input.GetKeyDown(KeyCode.H))
+        {
+            // Perform your action here
+            Debug.Log("H key is pressed. Performing action...");
+            // You can replace the Debug.Log with your actual action.
+        }*/
 		// Check if the desired delay has passed and the color hasn't been changed yet
         if (!colorChanged && elapsedTime >= delay)
         {
