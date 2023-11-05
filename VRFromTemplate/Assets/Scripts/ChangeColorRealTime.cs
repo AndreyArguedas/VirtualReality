@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using TMPro;
 
 public class ChangeAllMaterialsColor : MonoBehaviour
@@ -10,9 +11,10 @@ public class ChangeAllMaterialsColor : MonoBehaviour
     private bool colorChanged = false;
 	
 	private static ChangeAllMaterialsColor instance;
+	private InputAction keyboardAction;
 	
 	private void Awake()
-    {
+    {	
         if (instance == null)
         {
             instance = this;
@@ -25,20 +27,43 @@ public class ChangeAllMaterialsColor : MonoBehaviour
     }
 
     private void Start()
-    {
+    {	
         // This message will be printed when the game starts
         Debug.Log("Global script is active!");
     }
+	
+	private void OnEnable()
+    {
+        // Create an InputAction for the keyboard
+        keyboardAction = new InputAction(binding: "<Keyboard>/H");
+        keyboardAction.Enable();
+
+        // Subscribe to the "performed" event
+        keyboardAction.performed += OnKeyboardInput;
+    }
+	
+	private void OnDisable()
+    {
+        // Unsubscribe from the event when the object is disabled or destroyed
+        keyboardAction.performed -= OnKeyboardInput;
+        keyboardAction.Disable();
+    }
+	
+	private void OnKeyboardInput(InputAction.CallbackContext context)
+    {
+        // Check if the key was pressed
+        if (context.performed)
+        {
+            // Perform your action here
+            Debug.Log("H key is pressed using the Input System. Performing action...");
+            // Replace the Debug.Log with your actual action.
+        }
+    }
+	
+	
 
     void Update()
     {	
-		// Start genetaring the Heat Map
-        /*if (Input.GetKeyDown(KeyCode.H))
-        {
-            // Perform your action here
-            Debug.Log("H key is pressed. Performing action...");
-            // You can replace the Debug.Log with your actual action.
-        }*/
 		// Check if the desired delay has passed and the color hasn't been changed yet
         if (!colorChanged && elapsedTime >= delay)
         {
