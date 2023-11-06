@@ -33,31 +33,18 @@ public class ChangeAllMaterialsColor : MonoBehaviour
         Debug.Log("Global script is active!");
 		parentObjects = new GameObject[]
         {
-            GameObject.Find("SM_Manequin_1 Variant 4"),
-			GameObject.Find("SM_Manequin_2 Variant"),
-			GameObject.Find("dress3_hanger Variant (1)"),
-			GameObject.Find("dress3_hanger Variant (2)"),
-			GameObject.Find("dress3_hanger Variant (3)"),
-			GameObject.Find("dress3_hanger Variant (4)"),
-			GameObject.Find("SM_Manequin_2 Variant 4"),
-			GameObject.Find("SM_Manequin_3 Variant"),
-			GameObject.Find("SM_Manequin_1 Variant 1"),
-			GameObject.Find("SM_Manequin_2 Variant 1 (2)"),
-			GameObject.Find("SM_Manequin_1 Variant 5"),
-			GameObject.Find("SM_Manequin_2 Variant 1 (1)"),
-			GameObject.Find("SM_Manequin_3 Variant 3"),
-			GameObject.Find("SM_Manequin_1 Variant"),
-			GameObject.Find("SM_Manequin_2 Variant 1"),
-			GameObject.Find("bag_2"),
-			GameObject.Find("bag_3"),
-			GameObject.Find("bag_1"),
-			GameObject.Find("bag_4"),
-			GameObject.Find("bag_1 (1)"),
-			GameObject.Find("bag_4 (1)"),
-			GameObject.Find("bag_3 (1)"),
-			GameObject.Find("bag_2 (1)"),
-			GameObject.Find("bag_3 (2)"),
-        };
+            GameObject.Find("enterManequin1"),
+            GameObject.Find("enterManequin2"),
+            GameObject.Find("enterManequin3"),
+            GameObject.Find("enterManequin4"),
+            GameObject.Find("enterManequin5"),
+            GameObject.Find("enterManequin6"),
+            GameObject.Find("enterManequin7"),
+            GameObject.Find("enterManequin8"),
+            GameObject.Find("enterManequin9"),
+            GameObject.Find("enterManequin10"),
+            GameObject.Find("enterManequin11")
+		};
     }
 	
 	private void OnEnable()
