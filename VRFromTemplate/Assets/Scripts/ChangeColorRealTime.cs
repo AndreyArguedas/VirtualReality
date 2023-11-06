@@ -12,6 +12,7 @@ public class ChangeAllMaterialsColor : MonoBehaviour
 	
 	private static ChangeAllMaterialsColor instance;
 	private InputAction keyboardAction;
+	private GameObject[] parentObjects;
 	
 	private void Awake()
     {	
@@ -30,6 +31,33 @@ public class ChangeAllMaterialsColor : MonoBehaviour
     {	
         // This message will be printed when the game starts
         Debug.Log("Global script is active!");
+		parentObjects = new GameObject[]
+        {
+            GameObject.Find("SM_Manequin_1 Variant 4"),
+			GameObject.Find("SM_Manequin_2 Variant"),
+			GameObject.Find("dress3_hanger Variant (1)"),
+			GameObject.Find("dress3_hanger Variant (2)"),
+			GameObject.Find("dress3_hanger Variant (3)"),
+			GameObject.Find("dress3_hanger Variant (4)"),
+			GameObject.Find("SM_Manequin_2 Variant 4"),
+			GameObject.Find("SM_Manequin_3 Variant"),
+			GameObject.Find("SM_Manequin_1 Variant 1"),
+			GameObject.Find("SM_Manequin_2 Variant 1 (2)"),
+			GameObject.Find("SM_Manequin_1 Variant 5"),
+			GameObject.Find("SM_Manequin_2 Variant 1 (1)"),
+			GameObject.Find("SM_Manequin_3 Variant 3"),
+			GameObject.Find("SM_Manequin_1 Variant"),
+			GameObject.Find("SM_Manequin_2 Variant 1"),
+			GameObject.Find("bag_2"),
+			GameObject.Find("bag_3"),
+			GameObject.Find("bag_1"),
+			GameObject.Find("bag_4"),
+			GameObject.Find("bag_1 (1)"),
+			GameObject.Find("bag_4 (1)"),
+			GameObject.Find("bag_3 (1)"),
+			GameObject.Find("bag_2 (1)"),
+			GameObject.Find("bag_3 (2)"),
+        };
     }
 	
 	private void OnEnable()
@@ -62,14 +90,13 @@ public class ChangeAllMaterialsColor : MonoBehaviour
 			 switch (key)
         {
             case "h":
-				//GameObject myObject = GameObject.Find("t-shirt_long_pose_1");
-				GameObject.Find("t-shirt_long_pose_1").GetComponent<Renderer>().material.color = Color.blue;
+				createHeatMap(parentObjects);
                 Debug.Log("H key is pressed. Performing action for 'H'...");
                 // Replace the Debug.Log with your actual 'H' key action.
                 break;
             case "k":
-				//GameObject myObject = GameObject.Find("t-shirt_long_pose_1");
-				GameObject.Find("t-shirt_long_pose_1").GetComponent<Renderer>().material.color = Color.gray;
+				
+				GameObject.Find("SM_Manequin_1 Variant 4").GetComponent<Renderer>().material.color = Color.gray;
                 Debug.Log("K key is pressed. Performing action for 'K'...");
                 // Replace the Debug.Log with your actual 'K' key action.
                 break;
@@ -79,11 +106,39 @@ public class ChangeAllMaterialsColor : MonoBehaviour
                 // Replace the Debug.Log with a default action or leave it empty.
                 break;
         }
-            // Perform your action here
-            //Debug.Log("H key is pressed using the Input System. Performing action...");
-            // Replace the Debug.Log with your actual action.
         }
     }
+	
+	void createHeatMap(GameObject[] objects){
+		// Iterate through the array of parent GameObjects
+        foreach (GameObject parentObject in objects)
+        {
+            // Get all the child GameObjects of the current parentObject
+            Transform[] childTransforms = parentObject.GetComponentsInChildren<Transform>();
+			Debug.Log($"childTransform '{childTransforms}'");
+            // Iterate through all child transforms (including the parent itself)
+            foreach (Transform childTransform in childTransforms)
+            {
+				Debug.Log($"childTransform '{childTransform}'");
+                // Check if the current transform is not the same as the parent transform
+                /*if (childTransform != parentObject.transform)
+                {*/
+                    // Get the Renderer component of the child GameObject
+                    Renderer childRenderer = childTransform.GetComponent<Renderer>();
+
+                    if (childRenderer != null)
+                    {
+						Debug.Log($"childRenderer '{childRenderer}'");
+                        // Change the material color of the child GameObject
+						Debug.Log($"childRenderer color before '{childRenderer.material.color}'");
+                        childRenderer.material.color = Color.red;
+						Debug.Log($"childRenderer color after '{childRenderer.material.color}'");
+                    }
+                //}
+            }
+        }
+		
+	}
 	
 	
 
