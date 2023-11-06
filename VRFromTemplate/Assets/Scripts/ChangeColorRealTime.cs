@@ -1,18 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 using TMPro;
 
 public class ChangeAllMaterialsColor : MonoBehaviour
 {
-    public Color newColor = Color.red; // The color you want to change to
-    public float delay = 30.0f; // Delay in seconds
-
-    private float elapsedTime = 0.0f;
-    private bool colorChanged = false;
-	
 	private static ChangeAllMaterialsColor instance;
 	private InputAction keyboardAction;
 	private GameObject[] parentObjects;
+	private Dictionary<GameObject, Color> objectHeatMap;
 	
 	private void Awake()
     {	
@@ -31,20 +27,19 @@ public class ChangeAllMaterialsColor : MonoBehaviour
     {	
         // This message will be printed when the game starts
         Debug.Log("Global script is active!");
-		parentObjects = new GameObject[]
-        {
-            GameObject.Find("enterManequin1"),
-            GameObject.Find("enterManequin2"),
-            GameObject.Find("enterManequin3"),
-            GameObject.Find("enterManequin4"),
-            GameObject.Find("enterManequin5"),
-            GameObject.Find("enterManequin6"),
-            GameObject.Find("enterManequin7"),
-            GameObject.Find("enterManequin8"),
-            GameObject.Find("enterManequin9"),
-            GameObject.Find("enterManequin10"),
-            GameObject.Find("enterManequin11")
-		};
+		objectHeatMap = new Dictionary<GameObject, Color>();
+		// Add GameObjects and their colors to the dictionary
+        objectHeatMap.Add(GameObject.Find("enterManequin1"), Color.red);
+        objectHeatMap.Add(GameObject.Find("enterManequin2"), Color.blue);
+        objectHeatMap.Add(GameObject.Find("enterManequin3"), Color.green);
+        objectHeatMap.Add(GameObject.Find("enterManequin4"), Color.yellow);
+		objectHeatMap.Add(GameObject.Find("enterManequin5"), Color.red);
+        objectHeatMap.Add(GameObject.Find("enterManequin6"), Color.blue);
+        objectHeatMap.Add(GameObject.Find("enterManequin7"), Color.green);
+        objectHeatMap.Add(GameObject.Find("enterManequin8"), Color.yellow);
+		objectHeatMap.Add(GameObject.Find("enterManequin9"), Color.red);
+        objectHeatMap.Add(GameObject.Find("enterManequin10"), Color.blue);
+        objectHeatMap.Add(GameObject.Find("enterManequin11"), Color.green);
     }
 	
 	private void OnEnable()
@@ -68,8 +63,6 @@ public class ChangeAllMaterialsColor : MonoBehaviour
     {	
 		// Get the key that was pressed
         string key = context.control.name;
-		//Debug.Log(key + " is pressed using the context.control.name...");
-
 		
         // Check if the key was pressed
         if (context.performed)
@@ -77,7 +70,8 @@ public class ChangeAllMaterialsColor : MonoBehaviour
 			 switch (key)
         {
             case "h":
-				createHeatMap(parentObjects);
+				//createHeatMap(parentObjects);
+				createHeatMap2(objectHeatMap);
                 Debug.Log("H key is pressed. Performing action for 'H'...");
                 // Replace the Debug.Log with your actual 'H' key action.
                 break;
@@ -96,36 +90,31 @@ public class ChangeAllMaterialsColor : MonoBehaviour
         }
     }
 	
-	void createHeatMap(GameObject[] objects){
-		// Iterate through the array of parent GameObjects
-        foreach (GameObject parentObject in objects)
+	
+	void createHeatMap2(Dictionary<GameObject, Color> objects){
+		
+		foreach (var kvp in objects)
         {
+            GameObject obj = kvp.Key;
+            Color color = kvp.Value;
+			
             // Get all the child GameObjects of the current parentObject
-            Transform[] childTransforms = parentObject.GetComponentsInChildren<Transform>();
-			Debug.Log($"childTransform '{childTransforms}'");
-            // Iterate through all child transforms (including the parent itself)
+            Transform[] childTransforms = obj.GetComponentsInChildren<Transform>();
+
             foreach (Transform childTransform in childTransforms)
             {
-				Debug.Log($"childTransform '{childTransform}'");
-                // Check if the current transform is not the same as the parent transform
-                /*if (childTransform != parentObject.transform)
-                {*/
-                    // Get the Renderer component of the child GameObject
-                    Renderer childRenderer = childTransform.GetComponent<Renderer>();
+                Renderer childRenderer = childTransform.GetComponent<Renderer>();
 
-                    if (childRenderer != null)
-                    {
-						Debug.Log($"childRenderer '{childRenderer}'");
-                        // Change the material color of the child GameObject
-						Debug.Log($"childRenderer color before '{childRenderer.material.color}'");
-                        childRenderer.material.color = Color.red;
-						Debug.Log($"childRenderer color after '{childRenderer.material.color}'");
-                    }
-                //}
+                if (childRenderer != null)
+                {
+                    // Change the material color of the child GameObject
+                    childRenderer.material.color = color;
+                }
+
             }
         }
-		
-	}
+    }
+
 	
 	
 
