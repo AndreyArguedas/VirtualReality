@@ -31,17 +31,27 @@ public class ChangeAllMaterialsColor : MonoBehaviour
         Debug.Log("Global script is active!");
 		objectHeatMap = new Dictionary<GameObject, Color>();
 		// Add GameObjects and their colors to the dictionary
-        objectHeatMap.Add(GameObject.Find("enterManequin1"), Color.red);
-        objectHeatMap.Add(GameObject.Find("enterManequin2"), Color.blue);
-        objectHeatMap.Add(GameObject.Find("enterManequin3"), Color.green);
-        objectHeatMap.Add(GameObject.Find("enterManequin4"), Color.yellow);
+        objectHeatMap.Add(GameObject.Find("enterManequin1"), Color.green);
+        objectHeatMap.Add(GameObject.Find("enterManequin2"), Color.red);
+        objectHeatMap.Add(GameObject.Find("enterManequin3"), Color.blue);
+        objectHeatMap.Add(GameObject.Find("enterManequin4"), Color.blue);
 		objectHeatMap.Add(GameObject.Find("enterManequin5"), Color.red);
-        objectHeatMap.Add(GameObject.Find("enterManequin6"), Color.blue);
-        objectHeatMap.Add(GameObject.Find("enterManequin7"), Color.green);
+        objectHeatMap.Add(GameObject.Find("enterManequin6"), Color.green);
+        objectHeatMap.Add(GameObject.Find("enterManequin7"), Color.red);
         objectHeatMap.Add(GameObject.Find("enterManequin8"), Color.yellow);
-		objectHeatMap.Add(GameObject.Find("enterManequin9"), Color.red);
-        objectHeatMap.Add(GameObject.Find("enterManequin10"), Color.blue);
+		objectHeatMap.Add(GameObject.Find("enterManequin9"), Color.blue);
+        objectHeatMap.Add(GameObject.Find("enterManequin10"), Color.red);
         objectHeatMap.Add(GameObject.Find("enterManequin11"), Color.green);
+		// Add GameObjects and their colors to the dictionary
+        objectHeatMap.Add(GameObject.Find("bag1_1"), Color.green);
+        objectHeatMap.Add(GameObject.Find("bag1_2"), Color.red);
+        objectHeatMap.Add(GameObject.Find("bag1_3"), Color.blue);
+        objectHeatMap.Add(GameObject.Find("bag1_4"), Color.blue);
+		objectHeatMap.Add(GameObject.Find("bag1_5"), Color.red);
+        objectHeatMap.Add(GameObject.Find("bag1_6"), Color.green);
+        objectHeatMap.Add(GameObject.Find("bag1_7"), Color.red);
+        objectHeatMap.Add(GameObject.Find("bag1_8"), Color.yellow);
+		objectHeatMap.Add(GameObject.Find("bag1_9"), Color.blue);
 		objectHeatMapRenderersReset = new Dictionary<Renderer, Color>();
 		
 		heatMapImage1 = GameObject.Find("heatMapImage1");
