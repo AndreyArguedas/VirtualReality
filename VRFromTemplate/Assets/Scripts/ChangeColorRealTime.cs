@@ -10,6 +10,7 @@ public class ChangeAllMaterialsColor : MonoBehaviour
 	private GameObject[] parentObjects;
 	private Dictionary<GameObject, Color> objectHeatMap;
 	private Dictionary<Renderer, Color> objectHeatMapRenderersReset;
+	public GameObject heatMapImage1;
 	
 	private void Awake()
     {	
@@ -42,6 +43,9 @@ public class ChangeAllMaterialsColor : MonoBehaviour
         objectHeatMap.Add(GameObject.Find("enterManequin10"), Color.blue);
         objectHeatMap.Add(GameObject.Find("enterManequin11"), Color.green);
 		objectHeatMapRenderersReset = new Dictionary<Renderer, Color>();
+		
+		heatMapImage1 = GameObject.Find("heatMapImage1");
+		heatMapImage1.SetActive(false);
     }
 	
 	private void OnEnable()
@@ -73,11 +77,13 @@ public class ChangeAllMaterialsColor : MonoBehaviour
         {
             case "h":
 				//createHeatMap(parentObjects);
+				heatMapImage1.SetActive(true);
 				createHeatMap(objectHeatMap);
                 Debug.Log("H key is pressed. Performing action for 'H'...");
                 // Replace the Debug.Log with your actual 'H' key action.
                 break;
             case "k":
+				heatMapImage1.SetActive(false);
 				resetHeatMap(objectHeatMapRenderersReset);
 				
                 Debug.Log("K key is pressed. Performing action for 'K'...");
@@ -109,7 +115,9 @@ public class ChangeAllMaterialsColor : MonoBehaviour
 
                 if (childRenderer != null)
                 {
-					objectHeatMapRenderersReset.Add(childRenderer, childRenderer.material.color);
+					if(!objectHeatMapRenderersReset.ContainsKey(childRenderer)){
+						objectHeatMapRenderersReset.Add(childRenderer, childRenderer.material.color);
+					}
                     // Change the material color of the child GameObject
                     childRenderer.material.color = color;
                 }
