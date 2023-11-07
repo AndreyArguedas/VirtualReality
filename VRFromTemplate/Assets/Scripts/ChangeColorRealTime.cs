@@ -11,6 +11,7 @@ public class ChangeAllMaterialsColor : MonoBehaviour
 	private Dictionary<GameObject, Color> objectHeatMap;
 	private Dictionary<Renderer, Color> objectHeatMapRenderersReset;
 	public GameObject heatMapImage1;
+	public GameObject heatMapImage2;
 	
 	private void Awake()
     {	
@@ -56,6 +57,9 @@ public class ChangeAllMaterialsColor : MonoBehaviour
 		
 		heatMapImage1 = GameObject.Find("heatMapImage1");
 		heatMapImage1.SetActive(false);
+		
+		heatMapImage2 = GameObject.Find("heatMapImage2");
+		heatMapImage2.SetActive(false);
     }
 	
 	private void OnEnable()
@@ -88,12 +92,14 @@ public class ChangeAllMaterialsColor : MonoBehaviour
             case "h":
 				//createHeatMap(parentObjects);
 				heatMapImage1.SetActive(true);
+				heatMapImage2.SetActive(true);
 				createHeatMap(objectHeatMap);
                 Debug.Log("H key is pressed. Performing action for 'H'...");
                 // Replace the Debug.Log with your actual 'H' key action.
                 break;
             case "k":
 				heatMapImage1.SetActive(false);
+				heatMapImage2.SetActive(false);
 				resetHeatMap(objectHeatMapRenderersReset);
 				
                 Debug.Log("K key is pressed. Performing action for 'K'...");
