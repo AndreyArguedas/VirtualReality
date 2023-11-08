@@ -13,6 +13,8 @@ public class ChangeAllMaterialsColor : MonoBehaviour
 	public GameObject heatMapImage1;
 	public GameObject heatMapImage2;
 	
+	private bool isReplacing = false;
+	
 	private void Awake()
     {	
         if (instance == null)
@@ -68,6 +70,7 @@ public class ChangeAllMaterialsColor : MonoBehaviour
         keyboardAction = new InputAction(binding: "<Keyboard>/H");
         keyboardAction.Enable();
 		keyboardAction.AddBinding("<Keyboard>/K");
+		keyboardAction.AddBinding("<Keyboard>/J");
         // Subscribe to the "performed" event
         keyboardAction.performed += OnKeyboardInput;
     }
@@ -104,6 +107,11 @@ public class ChangeAllMaterialsColor : MonoBehaviour
 				
                 Debug.Log("K key is pressed. Performing action for 'K'...");
                 // Replace the Debug.Log with your actual 'K' key action.
+                break;
+			case "j":
+				replaceObjects();
+				//isReplacing = true;
+                Debug.Log("J key is pressed. Performing action for 'J'...");
                 break;
             // Add more cases for other keys as needed
             default:
@@ -150,33 +158,70 @@ public class ChangeAllMaterialsColor : MonoBehaviour
             Color color = kvp.Value;
 			
 			obj.material.color = color;
-			
-			
-			//UnityEditor.PrefabUtility.RevertObjectOverride(obj, InteractionMode.UserAction);
-			//UnityEditor.PrefabUtility.RevertObjectOverride(this.gameObject, InteractionMode.AutomatedAction);
-			
-            /* // Get all the child GameObjects of the current parentObject
-            Transform[] childTransforms = obj.GetComponentsInChildren<Transform>();
-
-            foreach (Transform childTransform in childTransforms)
-            {
-                Renderer childRenderer = childTransform.GetComponent<Renderer>();
-
-                if (childRenderer != null)
-                {
-                    // Change the material color of the child GameObject
-                    childRenderer.material.color = color;
-                }
-
-            } */
         }
     }
+	
+	void replaceObjects(){
+		GameObject gameObject1 = GameObject.Find("enterManequin1");
+		GameObject gameObject2 = GameObject.Find("manequinReplace1");
+		if (gameObject1 != null && gameObject2 != null)
+        {
+            // Store the position and rotation of gameObject1
+            Vector3 position = gameObject1.transform.position;
+            Quaternion rotation = gameObject1.transform.rotation;
+
+            // Instantiate gameObject2 at the same position and rotation
+            //GameObject newObject = Instantiate(gameObject2, position, Quaternion.identity);
+
+            // Copy the parent and scale from gameObject1 to the new object
+            gameObject2.transform.position = position;
+            gameObject2.transform.rotation = rotation;
+			
+			/*// Store the position and rotation of gameObject1
+            Vector3 position = gameObject1.transform.position;
+            Quaternion rotation = gameObject1.transform.rotation;
+
+            // Update gameObject2 to match gameObject1
+            gameObject2.transform.position = position;
+            gameObject2.transform.rotation = rotation;*/
+			
+			
+			// Create a copy of the original GameObject
+            /*GameObject copyObject = Instantiate(gameObject1);
+
+            // Calculate the position for the copy next to the original
+            Vector3 copyPosition = gameObject1.transform.position + Vector3.right * 40;
+
+            // Set the position of the copy
+            copyObject.transform.position = copyPosition;*/
+			
+			
+			
+			//newObject.SetActive(true);
+			//isReplacing = true;
+            // Optionally, you can destroy the old gameObject1 if needed
+            Destroy(gameObject1);
+        }
+		
+	}
 
 	
 	
 
     void Update()
     {	
+	
+	/*if (isReplacing) // Replace on Space key press
+        {
+			GameObject gameObject2 = GameObject.Find("cubeTest");
+			GameObject gameObject3 = GameObject.Find("manequinReplace1");
+            //replaceObjects();
+			//isReplacing = false;
+			//gameObject2.transform.Translate(Vector3.up * Time.deltaTime);
+            //gameObject2.transform.Rotate(Vector3.up * 30f * Time.deltaTime);
+			gameObject2.transform.position += new Vector3(1.0f, 0.0f, 0.0f); 
+			gameObject3.transform.position += new Vector3(1.0f, 0.0f, 0.0f); 
+        }*/
 		// // Check if the desired delay has passed and the color hasn't been changed yet
         // if (!colorChanged && elapsedTime >= delay)
         // {
