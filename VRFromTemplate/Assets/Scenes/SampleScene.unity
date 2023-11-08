@@ -3635,6 +3635,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 278430524}
     m_Modifications:
+    - target: {fileID: 4605332990539722322, guid: 93cbfa67067810c4b8f0cc77bb9fef86, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f29e3c1c576f6641b9e474f6b194480, type: 2}
     - target: {fileID: 5542620342483931907, guid: 93cbfa67067810c4b8f0cc77bb9fef86, type: 3}
       propertyPath: m_RootOrder
       value: 37
@@ -3686,7 +3690,7 @@ PrefabInstance:
     - target: {fileID: 8734525670730442623, guid: 93cbfa67067810c4b8f0cc77bb9fef86, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0c43d4eac9f99d545b30a71346c30d0f, type: 2}
+      objectReference: {fileID: 2100000, guid: 3d9914e92c1db3f4caed885c92e0b7e9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4376,6 +4380,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: enterManequin1
       objectReference: {fileID: 0}
+    - target: {fileID: 4221362783575429995, guid: a381663282ff5764ba840e4c4c6ce3ad, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3f6eef4bff6eeea46921d41bd2cc91fe, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15851,6 +15859,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7691458297275898737, guid: a68b58381068a544daedbbda7d5097f9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e18ded4b611aa8f4a9f0f261d2f29537, type: 2}
     - target: {fileID: 7743538803012868347, guid: a68b58381068a544daedbbda7d5097f9, type: 3}
       propertyPath: m_Name
       value: enterManequin8
@@ -44941,6 +44953,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 278430524}
     m_Modifications:
+    - target: {fileID: 186889949251069958, guid: b254bf766bb5e494eb641694314b9c74, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 74117f645ca87544896e430b75e9a316, type: 2}
     - target: {fileID: 7597634539405572812, guid: b254bf766bb5e494eb641694314b9c74, type: 3}
       propertyPath: m_RootOrder
       value: 38
