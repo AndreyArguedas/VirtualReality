@@ -196,7 +196,7 @@ public class ChangeAllMaterialsColor : MonoBehaviour
 
     void Update()
     {	
-		
+		//Comment to test psuh capabilities not damaged
 		// myObject.GetComponent<Renderer>().material.color = newColor;
 		// myText.GetComponent<TextMeshPro>().text = "Brand: Roxy \n Price: $60";
 
