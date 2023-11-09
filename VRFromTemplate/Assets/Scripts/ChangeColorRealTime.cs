@@ -51,13 +51,43 @@ public class ChangeAllMaterialsColor : MonoBehaviour
 		// Add GameObjects and their colors to the dictionary
         objectHeatMap.Add(GameObject.Find("bag1_1"), Color.green);
         objectHeatMap.Add(GameObject.Find("bag1_2"), Color.red);
-        objectHeatMap.Add(GameObject.Find("bag1_3"), Color.blue);
-        objectHeatMap.Add(GameObject.Find("bag1_4"), Color.blue);
+        objectHeatMap.Add(GameObject.Find("bag1_3"), Color.green);
+        objectHeatMap.Add(GameObject.Find("bag1_4"), Color.red);
 		objectHeatMap.Add(GameObject.Find("bag1_5"), Color.red);
         objectHeatMap.Add(GameObject.Find("bag1_6"), Color.green);
         objectHeatMap.Add(GameObject.Find("bag1_7"), Color.red);
         objectHeatMap.Add(GameObject.Find("bag1_8"), Color.yellow);
-		objectHeatMap.Add(GameObject.Find("bag1_9"), Color.blue);
+		objectHeatMap.Add(GameObject.Find("bag1_9"), Color.yellow);
+		
+		objectHeatMap.Add(GameObject.Find("bag2_1"), Color.blue);
+        objectHeatMap.Add(GameObject.Find("bag2_2"), Color.blue);
+        objectHeatMap.Add(GameObject.Find("bag2_3"), Color.blue);
+        objectHeatMap.Add(GameObject.Find("bag2_4"), Color.blue);
+		objectHeatMap.Add(GameObject.Find("bag2_5"), Color.blue);
+        objectHeatMap.Add(GameObject.Find("bag2_6"), Color.blue);
+        objectHeatMap.Add(GameObject.Find("bag2_7"), Color.blue);
+        objectHeatMap.Add(GameObject.Find("bag2_8"), Color.blue);
+		objectHeatMap.Add(GameObject.Find("bag2_9"), Color.blue);
+		
+		objectHeatMap.Add(GameObject.Find("bag3_1"), Color.green);
+        objectHeatMap.Add(GameObject.Find("bag3_2"), Color.red);
+        objectHeatMap.Add(GameObject.Find("bag3_3"), Color.green);
+        objectHeatMap.Add(GameObject.Find("bag3_4"), Color.red);
+		objectHeatMap.Add(GameObject.Find("bag3_5"), Color.red);
+        objectHeatMap.Add(GameObject.Find("bag3_6"), Color.green);
+        objectHeatMap.Add(GameObject.Find("bag3_7"), Color.red);
+        objectHeatMap.Add(GameObject.Find("bag3_8"), Color.yellow);
+		
+		objectHeatMap.Add(GameObject.Find("bag4_1"), Color.blue);
+        objectHeatMap.Add(GameObject.Find("bag4_2"), Color.blue);
+        objectHeatMap.Add(GameObject.Find("bag4_3"), Color.blue);
+        objectHeatMap.Add(GameObject.Find("bag4_4"), Color.blue);
+		objectHeatMap.Add(GameObject.Find("bag4_5"), Color.blue);
+        objectHeatMap.Add(GameObject.Find("bag4_6"), Color.blue);
+        objectHeatMap.Add(GameObject.Find("bag4_7"), Color.blue);
+        objectHeatMap.Add(GameObject.Find("bag4_8"), Color.blue);
+		
+		
 		objectHeatMapRenderersReset = new Dictionary<Renderer, Color>();
 		
 		enterReplacements = new Dictionary<GameObject, GameObject>();
@@ -132,6 +162,7 @@ public class ChangeAllMaterialsColor : MonoBehaviour
                 break;
 			case "l":
 				replaceObjects(bagsReplacements);
+				replaceTextsBags();
                 Debug.Log("L key is pressed. Performing action for 'L'...");
                 break;
             // Add more cases for other keys as needed
@@ -214,12 +245,16 @@ public class ChangeAllMaterialsColor : MonoBehaviour
 		textObject6.GetComponent<TextMeshPro>().text = "Brand: Zara \n Price: $450";
 	}
 	
+	void replaceTextsBags(){
+		GameObject textObject = GameObject.Find("TextTagsBags01");
+		GameObject textObject2 = GameObject.Find("TextTagsBags03");
+		textObject.GetComponent<TextMeshPro>().text = "Brand: ZQucci \n Price: $500";
+		textObject2.GetComponent<TextMeshPro>().text = "Brand: Model \n Price: $750";
+	}
+	
 
     void Update()
     {	
-		//Comment to test psuh capabilities not damaged
-		// myObject.GetComponent<Renderer>().material.color = newColor;
-		// myText.GetComponent<TextMeshPro>().text = "Brand: Roxy \n Price: $60";
-
+		
     }
 }
