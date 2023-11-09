@@ -62,6 +62,10 @@ public class ChangeAllMaterialsColor : MonoBehaviour
 		enterReplacements = new Dictionary<GameObject, GameObject>();
 		enterReplacements.Add(GameObject.Find("enterManequin1"), GameObject.Find("manequinReplacement1"));
 		enterReplacements.Add(GameObject.Find("enterManequin4"), GameObject.Find("manequinReplacement2"));
+		enterReplacements.Add(GameObject.Find("enterManequin3"), GameObject.Find("manequinReplacement3"));
+		enterReplacements.Add(GameObject.Find("enterManequin7"), GameObject.Find("manequinReplacement4"));
+		enterReplacements.Add(GameObject.Find("enterManequin11"), GameObject.Find("manequinReplacement5"));
+		enterReplacements.Add(GameObject.Find("enterManequin9"), GameObject.Find("manequinReplacement6"));
 		
 		heatMapImage1 = GameObject.Find("heatMapImage1");
 		heatMapImage1.SetActive(false);
