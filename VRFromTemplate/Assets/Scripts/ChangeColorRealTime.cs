@@ -11,6 +11,7 @@ public class ChangeAllMaterialsColor : MonoBehaviour
 	private Dictionary<GameObject, Color> objectHeatMap;
 	private Dictionary<Renderer, Color> objectHeatMapRenderersReset;
 	private Dictionary<GameObject, GameObject> enterReplacements;
+	private Dictionary<GameObject, GameObject> bagsReplacements;
 	public GameObject heatMapImage1;
 	public GameObject heatMapImage2;
 	
@@ -60,12 +61,17 @@ public class ChangeAllMaterialsColor : MonoBehaviour
 		objectHeatMapRenderersReset = new Dictionary<Renderer, Color>();
 		
 		enterReplacements = new Dictionary<GameObject, GameObject>();
+		bagsReplacements = new Dictionary<GameObject, GameObject>();
+		
 		enterReplacements.Add(GameObject.Find("enterManequin1"), GameObject.Find("manequinReplacement1"));
 		enterReplacements.Add(GameObject.Find("enterManequin4"), GameObject.Find("manequinReplacement2"));
 		enterReplacements.Add(GameObject.Find("enterManequin3"), GameObject.Find("manequinReplacement3"));
 		enterReplacements.Add(GameObject.Find("enterManequin7"), GameObject.Find("manequinReplacement4"));
 		enterReplacements.Add(GameObject.Find("enterManequin11"), GameObject.Find("manequinReplacement5"));
 		enterReplacements.Add(GameObject.Find("enterManequin9"), GameObject.Find("manequinReplacement6"));
+		
+		bagsReplacements.Add(GameObject.Find("bagsStand2"), GameObject.Find("bagsStandReplacement1"));
+		bagsReplacements.Add(GameObject.Find("bagsStand4"), GameObject.Find("bagsStandReplacement2"));
 		
 		heatMapImage1 = GameObject.Find("heatMapImage1");
 		heatMapImage1.SetActive(false);
@@ -81,6 +87,7 @@ public class ChangeAllMaterialsColor : MonoBehaviour
         keyboardAction.Enable();
 		keyboardAction.AddBinding("<Keyboard>/K");
 		keyboardAction.AddBinding("<Keyboard>/J");
+		keyboardAction.AddBinding("<Keyboard>/L");
         // Subscribe to the "performed" event
         keyboardAction.performed += OnKeyboardInput;
     }
@@ -120,8 +127,12 @@ public class ChangeAllMaterialsColor : MonoBehaviour
                 break;
 			case "j":
 				replaceObjects(enterReplacements);
-				//isReplacing = true;
+				replaceTextsEnter();
                 Debug.Log("J key is pressed. Performing action for 'J'...");
+                break;
+			case "l":
+				replaceObjects(bagsReplacements);
+                Debug.Log("L key is pressed. Performing action for 'L'...");
                 break;
             // Add more cases for other keys as needed
             default:
@@ -190,9 +201,9 @@ public class ChangeAllMaterialsColor : MonoBehaviour
 				Destroy(obj);
 			}
 		}
-		replaceTextsEnter();
 		
 	}
+	
 
 	void replaceTextsEnter(){
 		GameObject textObject = GameObject.Find("TextTags01");
@@ -201,7 +212,6 @@ public class ChangeAllMaterialsColor : MonoBehaviour
 		textObject.GetComponent<TextMeshPro>().text = "Brand: Supreme \n Price: $600";
 		textObject2.GetComponent<TextMeshPro>().text = "Brand: ZXQ \n Price: $700";
 		textObject6.GetComponent<TextMeshPro>().text = "Brand: Zara \n Price: $450";
-		
 	}
 	
 
