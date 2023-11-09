@@ -190,12 +190,19 @@ public class ChangeAllMaterialsColor : MonoBehaviour
 				Destroy(obj);
 			}
 		}
-		
-		
+		replaceTextsEnter();
 		
 	}
 
-	
+	void replaceTextsEnter(){
+		GameObject textObject = GameObject.Find("TextTags01");
+		GameObject textObject2 = GameObject.Find("TextTags02");
+		GameObject textObject6 = GameObject.Find("TextTags06");
+		textObject.GetComponent<TextMeshPro>().text = "Brand: Supreme \n Price: $600";
+		textObject2.GetComponent<TextMeshPro>().text = "Brand: ZXQ \n Price: $700";
+		textObject6.GetComponent<TextMeshPro>().text = "Brand: Zara \n Price: $450";
+		
+	}
 	
 
     void Update()
