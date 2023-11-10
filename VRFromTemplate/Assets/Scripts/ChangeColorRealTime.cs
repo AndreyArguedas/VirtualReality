@@ -181,24 +181,27 @@ public class ChangeAllMaterialsColor : MonoBehaviour
         {
             GameObject obj = kvp.Key;
             Color color = kvp.Value;
-			
-            // Get all the child GameObjects of the current parentObject
-            Transform[] childTransforms = obj.GetComponentsInChildren<Transform>();
+			if(obj != null){
+				// Get all the child GameObjects of the current parentObject
+				Transform[] childTransforms = obj.GetComponentsInChildren<Transform>();
 
-            foreach (Transform childTransform in childTransforms)
-            {
-                Renderer childRenderer = childTransform.GetComponent<Renderer>();
+				foreach (Transform childTransform in childTransforms)
+				{
+					Renderer childRenderer = childTransform.GetComponent<Renderer>();
 
-                if (childRenderer != null)
-                {
-					if(!objectHeatMapRenderersReset.ContainsKey(childRenderer)){
+					if (childRenderer != null)
+					{
+						if(!objectHeatMapRenderersReset.ContainsKey(childRenderer)){
 						objectHeatMapRenderersReset.Add(childRenderer, childRenderer.material.color);
-					}
+						}
                     // Change the material color of the child GameObject
                     childRenderer.material.color = color;
-                }
+					}
 
-            }
+				}
+				
+			}
+            
         }
     }
 	
@@ -208,8 +211,9 @@ public class ChangeAllMaterialsColor : MonoBehaviour
         {
             Renderer obj = kvp.Key;
             Color color = kvp.Value;
-			
-			obj.material.color = color;
+			if(obj != null){
+				obj.material.color = color;
+			}
         }
     }
 	
