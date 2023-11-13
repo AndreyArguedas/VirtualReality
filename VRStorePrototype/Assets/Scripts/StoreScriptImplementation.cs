@@ -3,9 +3,9 @@ using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using TMPro;
 
-public class ChangeAllMaterialsColor : MonoBehaviour
+public class StoreScriptImplementation : MonoBehaviour
 {
-	private static ChangeAllMaterialsColor instance;
+	private static StoreScriptImplementation instance;
 	private InputAction keyboardAction;
 	private GameObject[] parentObjects;
 	private Dictionary<GameObject, Color> objectHeatMap;
@@ -14,8 +14,6 @@ public class ChangeAllMaterialsColor : MonoBehaviour
 	private Dictionary<GameObject, GameObject> bagsReplacements;
 	public GameObject heatMapImage1;
 	public GameObject heatMapImage2;
-	
-	private bool isReplacing = false;
 	
 	private void Awake()
     {	
@@ -140,7 +138,6 @@ public class ChangeAllMaterialsColor : MonoBehaviour
 			 switch (key)
         {
             case "h":
-				//createHeatMap(parentObjects);
 				heatMapImage1.SetActive(true);
 				heatMapImage2.SetActive(true);
 				createHeatMap(objectHeatMap);
